@@ -70,3 +70,14 @@ services:
     entrypoint: ['/var/www/html/artisan']
     networks:
       - laravel
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8082:80"
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+    depends_on:
+      - mysql
+    networks:
+      - laravel
