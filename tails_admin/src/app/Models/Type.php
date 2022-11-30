@@ -9,8 +9,11 @@ class Type extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_type';
     protected $fillable = [
         'name_type',
         'id_category'
     ];
+
+    public $timestamps = false;
 }

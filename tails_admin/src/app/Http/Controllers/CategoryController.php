@@ -30,10 +30,10 @@ class CategoryController extends Controller
 
     public function edit($id){
         $category = Category::findOrFail($id);
-        return view('categories_view.edit', compact('categories'));
+        return view('categories_view.edit', compact('category'));
     }
 
-    public function update (Request $request, $id){
+    public function update(Request $request, $id){
         $request->validate([
             'name_category' => 'required'
         ]);

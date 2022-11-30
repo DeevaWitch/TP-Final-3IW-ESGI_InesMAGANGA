@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_type');
             $table->string('name_product',25);
             $table->longText('desc_product');
+            $table->float('price_product', 5, 2);
             $table->timestamps();
             $table->foreign('id_type')
                 ->references('id_type')->on('types')->onDelete('cascade');
