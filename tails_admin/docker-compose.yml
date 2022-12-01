@@ -1,6 +1,8 @@
 version: '3'
 networks:
   laravel:
+  app-shared:
+    driver: bridge
 services:
   nginx:
     image: nginx:stable-alpine
@@ -15,6 +17,7 @@ services:
       - mysql
     networks:
       - laravel
+      - app-shared
   mysql:
     image: mysql:5.7.22
     container_name: mysql_one
@@ -40,6 +43,7 @@ services:
       - ./src:/var/www/html
     networks:
       - laravel
+      - app-shared
   composer:
     image: composer:latest
     container_name: composer_one
