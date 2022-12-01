@@ -69,4 +69,13 @@ class ProductController extends Controller
         $product->delete();
         return redirect('/products');
     }
+
+    public function sendRemoteProducts(){
+        $products = DB::table('products')
+                    ->join('types','products.id_type', '=', 'types.id_type')
+                    ->join('categories','categories.id_category', '=', 'types.id_category')
+                    ->select('products.*', 'categories.name_category', 'types.name_type')
+                    ->get();
+        return $products;
+    }
 }

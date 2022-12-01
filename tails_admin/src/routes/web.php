@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,13 +48,11 @@ Route::controller(ProductController::class)->group(function(){
     Route::post('/products', 'store');
     Route::patch('/products/{id}', 'update');
     Route::delete('/products/{id}', 'destroy');
+
+    Route::get('/remoteProducts', 'sendRemoteProducts');
 });
 
 
 Route::get('/', function () {
     return view('home');
 });
-
-// Route::get('/categories', function () {
-//     return view('home');
-// });
